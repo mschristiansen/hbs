@@ -1,10 +1,13 @@
 #include <Arduino.h>
 #include "Temperature.h"
 #include "Display.h"
+#include "PID.h"
 
 void setup();
 void loop();
 float t;
+double j;
+SPid pid;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -13,13 +16,13 @@ void setup() {
   Serial.begin(9600);
   temp_init(10);
   displayInit();
+  pidInit(&pid, 0);
 }
 
 // the loop function runs over and over again forever
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);                       // wait for a second
-  Serial.println("going low");
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);                       // wait for a second
   t = temp_read();
@@ -27,4 +30,7 @@ void loop() {
   Serial.print(t);
   Serial.println(" Celsius");
   displayTemp(t);
+  j = pidUpdate(&pid, t - 20, t);
+  Serial.print(" PID: ");
+  Serial.println(j);
 }

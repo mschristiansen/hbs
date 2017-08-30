@@ -9,6 +9,8 @@ ARDUINO_PATH = /usr/share/arduino/hardware/arduino/cores/arduino
 VARIANT_PATH = /usr/share/arduino/hardware/arduino/variants/standard
 ARDUINO_LIBS = /usr/share/arduino/libraries
 
+default: Main.hex
+
 # The library must be compiled without Link-Time-Optimization (LTO), (flag: -flto).
 libArduino.a: $(ARDUINO_PATH)/*.c $(ARDUINO_PATH)/*.cpp
 	$(CC) $(CFLAGS) -c $(ARDUINO_PATH)/*.c $(ARDUINO_PATH)/*.cpp
@@ -39,11 +41,14 @@ OneWire.o: lib/OneWire/OneWire.cpp
 Temperature.o: Temperature.cpp
 	$(CC) $(CFLAGS) -flto -c Temperature.cpp
 
+PID.o: PID.cpp
+	$(CC) $(CFLAGS) -flto -c PID.cpp
+
 Main.o:	Main.cpp
 	$(CC) $(CFLAGS) -flto -c Main.cpp
 
-Main.elf: libArduino.a Main.o Temperature.o OneWire.o Display.o Adafruit_SSD1306.o Adafruit_GFX.o SPI.o Wire.o twi.o
-	$(CC) $(FDFLAGS) Main.o Temperature.o OneWire.o Display.o Adafruit_SSD1306.o Adafruit_GFX.o SPI.o Wire.o twi.o libArduino.a -lm -o Main.elf
+Main.elf: libArduino.a Main.o Temperature.o OneWire.o Display.o Adafruit_SSD1306.o Adafruit_GFX.o SPI.o Wire.o twi.o PID.o
+	$(CC) $(FDFLAGS) Main.o Temperature.o OneWire.o Display.o Adafruit_SSD1306.o Adafruit_GFX.o SPI.o Wire.o twi.o PID.o libArduino.a -lm -o Main.elf
 
 Main.epp: Main.elf
 	avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0  Main.elf Main.epp
@@ -58,3 +63,4 @@ clean:
 
 screen:
 	screen $(PORT) 9600
+
