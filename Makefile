@@ -39,20 +39,20 @@ OneWire.o: lib/OneWire/OneWire.cpp
 Temperature.o: Temperature.cpp
 	$(CC) $(CFLAGS) -flto -c Temperature.cpp
 
-led.o:	led.cpp
-	$(CC) $(CFLAGS) -flto -c led.cpp
+Main.o:	Main.cpp
+	$(CC) $(CFLAGS) -flto -c Main.cpp
 
-led.elf: libArduino.a led.o Temperature.o OneWire.o Display.o Adafruit_SSD1306.o Adafruit_GFX.o SPI.o Wire.o twi.o
-	$(CC) $(FDFLAGS) led.o Temperature.o OneWire.o Display.o Adafruit_SSD1306.o Adafruit_GFX.o SPI.o Wire.o twi.o libArduino.a -lm -o led.elf
+Main.elf: libArduino.a Main.o Temperature.o OneWire.o Display.o Adafruit_SSD1306.o Adafruit_GFX.o SPI.o Wire.o twi.o
+	$(CC) $(FDFLAGS) Main.o Temperature.o OneWire.o Display.o Adafruit_SSD1306.o Adafruit_GFX.o SPI.o Wire.o twi.o libArduino.a -lm -o Main.elf
 
-led.epp: led.elf
-	avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0  led.elf led.epp
+Main.epp: Main.elf
+	avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0  Main.elf Main.epp
 
-led.hex: led.elf
-	avr-objcopy -O ihex -R .eeprom led.elf led.hex
+Main.hex: Main.elf
+	avr-objcopy -O ihex -R .eeprom Main.elf Main.hex
 
-upload: led.hex
-	avrdude -v -p$(MCU) -carduino -P$(PORT) -b$(BAUD) -D -Uflash:w:led.hex:i
+upload: Main.hex
+	avrdude -v -p$(MCU) -carduino -P$(PORT) -b$(BAUD) -D -Uflash:w:Main.hex:i
 clean:
 	rm -f *.o *.d *.elf *.hex *.a
 
