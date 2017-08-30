@@ -4,3 +4,4 @@
 *.elf
 *.d
 tmp/
+/libArduino.a

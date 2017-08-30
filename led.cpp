@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "Temperature.h"
+#include "Display.h"
 
 void setup();
 void loop();
@@ -11,6 +12,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600);
   temp_init(10);
+  display_setup();
 }
 
 // the loop function runs over and over again forever
