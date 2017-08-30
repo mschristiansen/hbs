@@ -94,11 +94,5 @@ float temp_read()
     //// default is 12 bit resolution, 750 ms conversion time
   }
   celsius = (float)raw / 16.0;
-  fahrenheit = celsius * 1.8 + 32.0;
-  Serial.print("  Temperature = ");
-  Serial.print(celsius);
-  Serial.print(" Celsius, ");
-  Serial.print(fahrenheit);
-  Serial.println(" Fahrenheit");
   return celsius;
 }

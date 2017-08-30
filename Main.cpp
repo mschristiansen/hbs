@@ -12,7 +12,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600);
   temp_init(10);
-  display_setup();
+  displayInit();
 }
 
 // the loop function runs over and over again forever
@@ -23,4 +23,8 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);                       // wait for a second
   t = temp_read();
+  Serial.print("  Temperature = ");
+  Serial.print(t);
+  Serial.println(" Celsius");
+  displayTemp(t);
 }

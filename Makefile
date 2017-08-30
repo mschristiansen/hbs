@@ -57,4 +57,4 @@ clean:
 	rm -f *.o *.d *.elf *.hex *.a
 
 screen:
-	sudo screen $(PORT) 9600
+	screen $(PORT) 9600
