@@ -1,7 +1,9 @@
 #include <Arduino.h>
 #include "Temperature.h"
 
-OneWire ds(10);  // on pin 10 (a 4.7K resistor is necessary)
+// on pin 10 (a 4.7K resistor is necessary)
+const int tempPin = 10;
+OneWire ds(tempPin);
 byte addr[8];
 byte i;
 byte present = 0;
@@ -9,7 +11,7 @@ byte type_s;
 byte data[12];
 float celsius, fahrenheit;
 
-void temp_init(byte pin)
+void temp_init()
 {
   if ( !ds.search(addr)) {
     Serial.println("No more addresses.");

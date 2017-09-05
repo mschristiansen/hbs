@@ -2,7 +2,7 @@
 #define Temperature_h
 #include "lib/OneWire/OneWire.h"
 
-void temp_init(byte pin);
+void temp_init();
 
 float temp_read();
 
