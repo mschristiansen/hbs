@@ -1,7 +1,7 @@
 CC=avr-g++
 CFLAGS = -Wall -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=$(MCU) -DF_CPU=$(F_CPU) -DARDUINO=10804 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -I$(ARDUINO_PATH) -I$(VARIANT_PATH) -I$(ARDUINO_LIBS)/SPI -I$(ARDUINO_LIBS)/Wire -Ilib/Adafruit-GFX-Library -Ilib/Adafruit_SSD1306 -I$(ARDUINO_LIBS)/Wire/utility
 FDFLAGS = -w -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=$(MCU)
-PORT = /dev/ttyACM1
+PORT = /dev/ttyACM0
 BAUD = 115200
 MCU = atmega328p
 F_CPU = 16000000L
