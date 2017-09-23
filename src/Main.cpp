@@ -1,29 +1,29 @@
 #include <Arduino.h>
 #include "HBS.h"
 
-#define PWMPIN 11
-#define OFF 0
-
 void setup();
 void loop();
 SPid pid;
 
 // define the initial state for the system.
 struct state initial = {
-  0,          // actual temperature
-  60,         // setpoint temperature
-  0,          // Duty-cycle on heater
-  OFF,        // Pump
-  OFF,        // Buzzer
-  TEMPERATURE // Selected menu
+  0,    // actual temperature
+  60,   // setpoint temperature
+  OFF,  // Heater
+  0,    // Duty-cycle on heater
+  OFF,  // Pump
+  OFF,  // Buzzer
+  HEAT  // Selected menu
 };
 
 // Create and initialise the state for the system.
 struct state *hbs = &initial;
 
 // Prototypes.
-void pwmInit();
-void pwmUpdate(int dutyCycle);
+void pumpInit();
+void pumpUpdate(int dutyCycle);
+void heaterInit();
+void heaterUpdate(int dutyCycle);
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -31,8 +31,8 @@ void setup() {
   initTemp();
   displayInit();
   pidInit(&pid, 0);
-  // initialize pwm pin as an output.
-  pwmInit();
+  pumpInit();
+  heaterInit();
   initBuzzer();
   initButtons();
 }
@@ -50,23 +50,39 @@ void loop()
     soundBuzzer();
 
   // Pump ON/OFF
-  if (hbs->pump) {
-    pwmUpdate(255);
-  } else {
-    pwmUpdate(0);
-  }
+  if (hbs->pump)
+    pumpUpdate(255);
+  else
+    pumpUpdate(0);
 
   // Use PID controller to Set duty-cycle of heater
-  hbs->heater = pidUpdate(&pid, hbs->setTemp - hbs->actualTemp, hbs->actualTemp);
+  hbs->heat = pidUpdate(&pid, hbs->setTemp - hbs->actualTemp, hbs->actualTemp);
+
+  // Heater OFF or PWM
+  if (hbs->heater)
+    heaterUpdate(hbs->heat);
+  else
+    heaterUpdate(0);
 }
 
-void pwmInit()
+void pumpInit()
 {
-  pinMode(PWMPIN, OUTPUT);
+  pinMode(PUMP_PIN, OUTPUT);
 }
 
 // Takes a value from 0-255
-void pwmUpdate(int dutyCycle)
+void pumpUpdate(int dutyCycle)
 {
-  analogWrite(PWMPIN, dutyCycle);
+  analogWrite(PUMP_PIN, dutyCycle);
+}
+
+void heaterInit()
+{
+  pinMode(HEATER_PIN, OUTPUT);
+}
+
+// Takes a value from 0-255
+void heaterUpdate(int dutyCycle)
+{
+  analogWrite(HEATER_PIN, dutyCycle);
 }

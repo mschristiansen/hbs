@@ -1,10 +1,8 @@
 #include <Arduino.h>
 #include "../lib/OneWire/OneWire.h"
+#include "HBS.h"
 
-// on pin 10 (a 4.7K resistor is necessary)
-#define TEMPPIN 10
-
-OneWire ds(TEMPPIN);
+OneWire ds(TEMP_PIN);
 byte addr[8];
 byte i;
 byte present = 0;

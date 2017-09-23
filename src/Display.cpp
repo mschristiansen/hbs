@@ -32,7 +32,7 @@ void displayUpdate(const struct state d)
   display.clearDisplay();
 
   // First row.
-  display.print(d.selected == TEMPERATURE ? "*" : " ");
+  display.print(d.selected == HEAT ? "*" : " ");
   display.print(" Temp: ");
   display.print(d.actualTemp, 1);
   display.print("/");
@@ -40,13 +40,18 @@ void displayUpdate(const struct state d)
 
   // Second row.
   display.print(d.selected == PUMP ? "*" : " ");
-  display.print(" Pump: ");
+  display.print(" Pump:   ");
   display.println( d.pump ? "on" : "off" );
 
   // Third row.
-  display.print("  Heat: ");
-  display.print(d.heater);
-  display.println("%");
+  display.print(d.selected == HEATER ? "*" : " ");
+  display.print(" Heater: ");
+  if (d.heater == OFF)
+    display.print("off");
+  else {
+    display.print(d.heat / 2.55, 0);
+    display.println("%");
+  }
 
   display.display();
 }

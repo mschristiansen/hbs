@@ -26,8 +26,14 @@ void readButtons(struct state *hbs)
     // save the last time the button was pressed.
     nextPrevMillis = currentMillis;
 
-    if (!next)
-      hbs->selected = hbs->selected == PUMP ? TEMPERATURE : PUMP;
+    if (!next) {
+      if (hbs->selected == HEAT)
+	hbs->selected = PUMP;
+      else if (hbs->selected == PUMP)
+	hbs->selected = HEATER;
+      else
+	hbs->selected = HEAT;
+    }
   }
 
   int select = digitalRead(SELECT_BUTTON_PIN);
@@ -38,11 +44,14 @@ void readButtons(struct state *hbs)
 
     if (!select) {
       switch(hbs->selected){
-      case PUMP :
-	hbs->pump = hbs->pump == true ? false : true;
-	break;
-      case TEMPERATURE :
+      case HEAT :
 	hbs->setTemp += 1;
+	break;
+      case PUMP :
+	hbs->pump = hbs->pump == ON ? OFF : ON;
+	break;
+      case HEATER :
+	hbs->heater = hbs->heater == ON ? OFF : ON;
 	break;
       }
     }

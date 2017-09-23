@@ -24,7 +24,14 @@ SSD1306 OLED Display
 Solid-State Relay
 -----------------
 
-Connected with high on pin 11, which supports PWM
+To control the heater is connected on pin 11, which supports PWM.
+
+
+MOSFET
+------
+
+To control the pump is connected on pin 10. This pin supports PWM, but
+that functionality is currently not used.
 
 
 Buttons
