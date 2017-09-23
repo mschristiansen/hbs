@@ -1,45 +1,51 @@
 #include <Arduino.h>
-#include "PID.h"
+#include "HBS.h"
 
 void pidInit(SPid * pid, double t)
 {
   pid->dState = t;
   pid->iState = t;
-  pid->iMax = 100.0;
+  pid->iMax = 255;
   pid->iMin = 0;
   pid->iGain = 0.01;
-  pid->pGain = 2;
+  pid->pGain = 1;
   pid->dGain = 5000;
+  Serial.println("error, position, pterm, dterm, iterm, result");
 }
 
-double pidUpdate(SPid * pid, double error, double position)
+int pidUpdate(SPid * pid, double error, double position)
 {
   double pTerm, dTerm, iTerm;
-  Serial.print("error: ");
-  Serial.println(error);
-  Serial.print("position: ");
-  Serial.println(position);
 
   // calculate the proportional term
   pTerm = pid->pGain * error;
-  Serial.print("pTerm: ");
-  Serial.println(pTerm);
 
   // calculate the integral state with appropriate limiting
   pid->iState += error;
-  if (pid->iState > pid->iMax) pid->iState = pid->iMax;
-  else if (pid->iState < pid->iMin) pid->iState = pid->iMin;
-  Serial.print("iState: ");
-  Serial.println(pid->iState);
-
-  // calculate the integral term
+  if (pid->iState > pid->iMax)
+    pid->iState = pid->iMax;
+  else if (pid->iState < pid->iMin)
+    pid->iState = pid->iMin;
   iTerm = pid->iGain * pid->iState;
-  Serial.print("iTerm: ");
-  Serial.println(iTerm);
 
+  // calculate the derivative term
   dTerm = pid->dGain * (position - pid->dState);
-  Serial.print("iTerm: ");
-  Serial.println(iTerm);
+
   pid->dState = position;
-  return pTerm + iTerm - dTerm;
+
+  double result = pTerm + iTerm - dTerm;
+
+  Serial.print(error);
+  Serial.print(", ");
+  Serial.print(position);
+  Serial.print(", ");
+  Serial.print(pTerm);
+  Serial.print(", ");
+  Serial.print(dTerm);
+  Serial.print(", ");
+  Serial.print(iTerm);
+  Serial.print(", ");
+  Serial.println(result);
+
+  return (int)result;
 }

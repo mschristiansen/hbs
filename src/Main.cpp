@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include "PID.h"
 #include "HBS.h"
 
 #define PWMPIN 11
@@ -47,13 +46,18 @@ void loop()
   readButtons(hbs);
   displayUpdate(*hbs);
 
-  if (hbs->actualTemp > 30)
+  if (hbs->actualTemp > hbs->setTemp)
     soundBuzzer();
 
-  // double j = pidUpdate(&pid, actualTemp - 20, actualTemp);
-  // pwmUpdate(127);
-  // pwmUpdate(255);
-  // pwmUpdate(0);
+  // Pump ON/OFF
+  if (hbs->pump) {
+    pwmUpdate(255);
+  } else {
+    pwmUpdate(0);
+  }
+
+  // Use PID controller to Set duty-cycle of heater
+  hbs->heater = pidUpdate(&pid, hbs->setTemp - hbs->actualTemp, hbs->actualTemp);
 }
 
 void pwmInit()

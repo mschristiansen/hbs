@@ -22,4 +22,5 @@ $ make flash
 References
 ----------
 
+- http://www.nongnu.org/avr-libc/user-manual/index.html
 - http://playground.arduino.cc/Learning/OneWire
