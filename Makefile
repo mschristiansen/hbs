@@ -9,7 +9,7 @@ F_CPU = 16000000L
 ARDUINO_PATH = /usr/share/arduino/hardware/arduino/cores/arduino
 VARIANT_PATH = /usr/share/arduino/hardware/arduino/variants/standard
 ARDUINO_LIBS = /usr/share/arduino/libraries
-objects = Adafruit_SSD1306.o Adafruit_GFX.o SPI.o twi.o Wire.o Display.o Buzzer.o OneWire.o Temperature.o PID.o Main.o libArduino.a
+objects = Adafruit_SSD1306.o Adafruit_GFX.o SPI.o twi.o Wire.o Display.o Buzzer.o Buttons.o OneWire.o Temperature.o PID.o Main.o libArduino.a
 # objects := $(patsubst %.cpp,%.o,$(addprefix src/,$(wildcard *.cpp))) Adafruit_SSD1306.o Adafruit_GFX.o SPI.o twi.o Wire.o OneWire.o libArduino.a
 VPATH = src
 
@@ -40,6 +40,9 @@ Display.o: Display.cpp
 	$(CXX) $(CFLAGS) -flto -c $^
 
 Buzzer.o: Buzzer.cpp
+	$(CXX) $(CFLAGS) -flto -c $^
+
+Buttons.o: Buttons.cpp
 	$(CXX) $(CFLAGS) -flto -c $^
 
 OneWire.o: lib/OneWire/OneWire.cpp

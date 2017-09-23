@@ -1,7 +1,14 @@
+/*
+
+  Functions for initialising and updating the display.
+
+ */
+
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include "HBS.h"
 
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
@@ -14,18 +21,31 @@ void displayInit()
 {
   // initialize with the I2C addr 0x3C (for the 128x32)
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  display.display();
-  delay(2000);
-  display.clearDisplay();
 }
 
-void displayTemp(float t)
+void displayUpdate(const struct state d)
 {
-  display.setTextSize(2);
+  // Display text in size 1 giving four rows of text.
+  display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0,0);
   display.clearDisplay();
-  display.print("temp: ");
-  display.println(t);
+
+  // First row.
+  display.print(d.selected == TEMPERATURE ? "*" : " ");
+  display.print(" Temp: ");
+  display.print(d.actualTemp, 1);
+  display.print("/");
+  display.println(d.setTemp, 1);
+
+  // Second row.
+  display.print(d.selected == PUMP ? "*" : " ");
+  display.print(" Pump: ");
+  display.println( d.pump ? "on" : "off" );
+
+  // Third row.
+  display.print("  Heat: ");
+  display.println("100%");
+
   display.display();
 }

@@ -1,9 +1,10 @@
 #include <Arduino.h>
-#include "Temperature.h"
+#include "../lib/OneWire/OneWire.h"
 
 // on pin 10 (a 4.7K resistor is necessary)
-const int tempPin = 10;
-OneWire ds(tempPin);
+#define TEMPPIN 10
+
+OneWire ds(TEMPPIN);
 byte addr[8];
 byte i;
 byte present = 0;
@@ -11,7 +12,7 @@ byte type_s;
 byte data[12];
 float celsius, fahrenheit;
 
-void temp_init()
+void initTemp()
 {
   if ( !ds.search(addr)) {
     Serial.println("No more addresses.");
@@ -53,13 +54,11 @@ void temp_init()
   }
 }
 
-float temp_read()
+float readTemp()
 {
   ds.reset();
   ds.select(addr);
   ds.write(0x44, 1); // start conversion, with parasite power on at the end
-
-  delay(1000);
 
   present = ds.reset();
   ds.select(addr);
@@ -96,5 +95,8 @@ float temp_read()
     //// default is 12 bit resolution, 750 ms conversion time
   }
   celsius = (float)raw / 16.0;
+
+  Serial.print("Temp direct: ");
+  Serial.println(celsius);
   return celsius;
 }

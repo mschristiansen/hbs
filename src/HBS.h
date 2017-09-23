@@ -28,6 +28,11 @@ void soundBuzzer();
 // Initialise the temperature probe.
 void initTemp();
 
+// Read celcius temperature from temperature probe.
 float readTemp();
+
+// Initialise the buttons.
+void initButtons();
+void readButtons(struct state *hbs);
 
 #endif
