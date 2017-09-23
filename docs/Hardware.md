@@ -4,12 +4,12 @@ Hardware Setup
 Built on Arduino Uno.
 
 
-DS18x20 Temperature Sensor
+DS18B20 Temperature Sensor
 --------------------------
 
 - 5 volt power
 - One wire to pin 10 with resistor for pullup
-
+- DS18x20 family
 
 SSD1306 OLED Display
 --------------------
