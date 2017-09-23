@@ -7,7 +7,7 @@ struct state
 {
   float actualTemp; // Actual temperature
   float setTemp;    // Set point for temperature
-  float heater;     // Duty-cycle for heater
+  int   heater;     // Duty-cycle for heater in percentage
   bool  pump;       // Pump on/off
   bool  buzzer;     // Buzzer on/off
   menu  selected;   // Selected menu

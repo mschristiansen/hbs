@@ -45,7 +45,8 @@ void displayUpdate(const struct state d)
 
   // Third row.
   display.print("  Heat: ");
-  display.println("100%");
+  display.print(d.heater);
+  display.println("%");
 
   display.display();
 }

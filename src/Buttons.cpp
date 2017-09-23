@@ -3,7 +3,7 @@
 
 #define SELECT_BUTTON_PIN 2
 #define NEXT_BUTTON_PIN 3
-#define PERIOD 200
+#define CLICK 200
 
 void initButtons()
 {
@@ -11,27 +11,40 @@ void initButtons()
   pinMode(NEXT_BUTTON_PIN, INPUT_PULLUP);
 }
 
-// State of the "next" button.
-int nextState = LOW;
-
 // "unsigned long" for time values.
 unsigned long nextPrevMillis = 0;
-
+unsigned long selectPrevMillis = 0;
 
 void readButtons(struct state *hbs)
 {
+  unsigned long currentMillis = millis();
+
   // Using input pullup and therefore 1 unless pressed.
   int next = digitalRead(NEXT_BUTTON_PIN);
 
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - nextPrevMillis >= PERIOD) {
-    // save the last time the buzzer sounded.
+  if (currentMillis - nextPrevMillis >= CLICK) {
+    // save the last time the button was pressed.
     nextPrevMillis = currentMillis;
 
     if (!next)
-      hbs->selected = hbs->selected == 1 ? 0 : 1;
-
+      hbs->selected = hbs->selected == PUMP ? TEMPERATURE : PUMP;
   }
 
+  int select = digitalRead(SELECT_BUTTON_PIN);
+
+  if (currentMillis - selectPrevMillis >= CLICK) {
+    // save the last time the button was pressed.
+    selectPrevMillis = currentMillis;
+
+    if (!select) {
+      switch(hbs->selected){
+      case PUMP :
+	hbs->pump = hbs->pump == true ? false : true;
+	break;
+      case TEMPERATURE :
+	hbs->setTemp += 1;
+	break;
+      }
+    }
+  }
 }
