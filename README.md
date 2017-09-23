@@ -18,3 +18,8 @@ Use the makefile to compile and flash.
 ```
 $ make flash
 ```
+
+References
+----------
+
+- http://playground.arduino.cc/Learning/OneWire
