@@ -36,25 +36,10 @@ twi.o: $(ARDUINO_LIBS)/Wire/utility/twi.c
 Wire.o: $(ARDUINO_LIBS)/Wire/Wire.cpp
 	$(CXX) $(CFLAGS) -flto -c $(ARDUINO_LIBS)/Wire/Wire.cpp
 
-Display.o: Display.cpp
-	$(CXX) $(CFLAGS) -flto -c $^
-
-Buzzer.o: Buzzer.cpp
-	$(CXX) $(CFLAGS) -flto -c $^
-
-Buttons.o: Buttons.cpp
-	$(CXX) $(CFLAGS) -flto -c $^
-
 OneWire.o: lib/OneWire/OneWire.cpp
 	$(CXX) $(CFLAGS) -flto -c lib/OneWire/OneWire.cpp
 
-Temperature.o: Temperature.cpp
-	$(CXX) $(CFLAGS) -flto -c $^
-
-PID.o: PID.cpp
-	$(CXX) $(CFLAGS) -flto -c $^
-
-Main.o:	Main.cpp
+%.o: %.cpp
 	$(CXX) $(CFLAGS) -flto -c $^
 
 Main.elf: $(objects)
@@ -69,10 +54,10 @@ Main.hex: Main.elf
 upload: Main.hex
 	avrdude -v -p$(MCU) -carduino -P$(PORT) -b$(BAUD) -D -Uflash:w:Main.hex:i
 
-.PHONY : clean
 clean:
 	rm -f *.o *.d *.elf *.hex *.a
 
 screen:
 	screen $(PORT) 9600
 
+.PHONY: clean screen test
