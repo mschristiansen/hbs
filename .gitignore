@@ -3,5 +3,6 @@
 *.epp
 *.elf
 *.d
+*.csv
 tmp/
 /firmware/libArduino.a

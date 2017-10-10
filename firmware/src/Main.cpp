@@ -8,7 +8,7 @@ SPid pid;
 // define the initial state for the system.
 struct state initial = {
   0,    // actual temperature
-  60,   // setpoint temperature
+  50,   // setpoint temperature
   OFF,  // Heater
   0,    // Duty-cycle on heater
   OFF,  // Pump
@@ -30,7 +30,7 @@ void setup() {
   Serial.begin(9600);
   initTemp();
   displayInit();
-  pidInit(&pid, 0);
+  pidInit(&pid);
   pumpInit();
   heaterInit();
   initBuzzer();

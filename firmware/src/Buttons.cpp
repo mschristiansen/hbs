@@ -31,6 +31,8 @@ void readButtons(struct state *hbs)
 	hbs->selected = PUMP;
       else if (hbs->selected == PUMP)
 	hbs->selected = HEATER;
+      else if (hbs->selected == HEATER)
+	hbs->selected = BUZZER;
       else
 	hbs->selected = HEAT;
     }
@@ -45,13 +47,17 @@ void readButtons(struct state *hbs)
     if (!select) {
       switch(hbs->selected){
       case HEAT :
-	hbs->setTemp += 1;
+	// Above 100 deg C start from 50 again.
+	(hbs->setTemp > 100) ? hbs->setTemp = 50 : hbs->setTemp++;
 	break;
       case PUMP :
-	hbs->pump = hbs->pump == ON ? OFF : ON;
+	hbs->pump = !hbs->pump;
 	break;
       case HEATER :
-	hbs->heater = hbs->heater == ON ? OFF : ON;
+	hbs->heater = !hbs->heater;
+	break;
+      case BUZZER :
+	hbs->buzzer = !hbs->buzzer;
 	break;
       }
     }

@@ -1,16 +1,16 @@
 #include <Arduino.h>
 #include "HBS.h"
 
-void pidInit(SPid * pid, double t)
+void pidInit(SPid * pid)
 {
-  pid->dState = t;
-  pid->iState = t;
-  pid->iMax = 255;
-  pid->iMin = 0;
-  pid->pGain = 5;
-  pid->iGain = 0;
-  pid->dGain = 0;
-  Serial.println("error, position, pterm, dterm, iterm, result");
+  pid->dState =   20;
+  pid->iState =    0;
+  pid->iMax   =  127;
+  pid->iMin   = -127;
+  pid->pGain  =   50;
+  pid->iGain  =    0;
+  pid->dGain  =    0;
+  Serial.println("error, position, pterm, iterm, dterm, result");
 }
 
 unsigned long pidPrevMillis = 0;
@@ -23,6 +23,8 @@ int pidUpdate(SPid * pid, double error, double position)
   if (currentMillis - pidPrevMillis >= 1000) {
     // save time of last cycle.
     pidPrevMillis = currentMillis;
+
+    /* Don't use PID for now.
 
     double pTerm, dTerm, iTerm;
 
@@ -38,7 +40,7 @@ int pidUpdate(SPid * pid, double error, double position)
     iTerm = pid->iGain * pid->iState;
 
     // calculate the derivative term.
-    dTerm = pid->dGain * (position - pid->dState);
+    dTerm = pid->dGain * (pid->dState - position);
 
     pid->dState = position;
 
@@ -49,16 +51,20 @@ int pidUpdate(SPid * pid, double error, double position)
     else if (pwm < 0)
       pwm = 0;
 
+    */
+
+    pwm = error <= 0 ? 0 : 255;
+
     Serial.print(error);
     Serial.print(", ");
     Serial.print(position);
     Serial.print(", ");
-    Serial.print(pTerm);
-    Serial.print(", ");
-    Serial.print(dTerm);
-    Serial.print(", ");
-    Serial.print(iTerm);
-    Serial.print(", ");
+    // Serial.print(pTerm);
+    // Serial.print(", ");
+    // Serial.print(iTerm);
+    // Serial.print(", ");
+    // Serial.print(dTerm);
+    // Serial.print(", ");
     Serial.println(pwm);
   }
 

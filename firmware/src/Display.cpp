@@ -47,11 +47,17 @@ void displayUpdate(const struct state d)
   display.print(d.selected == HEATER ? "*" : " ");
   display.print(" Heater: ");
   if (d.heater == OFF)
-    display.print("off");
+    display.println("off");
   else {
     display.print(d.heat / 2.55, 0);
     display.println("%");
   }
 
+  // Fourth row.
+  display.print(d.selected == BUZZER ? "*" : " ");
+  display.print(" Buzzer: ");
+  display.println( d.buzzer ? "on" : "off" );
+
+  // Update display.
   display.display();
 }

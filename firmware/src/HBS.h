@@ -9,7 +9,7 @@
 #define OFF 0
 #define ON 1
 
-enum menu { HEATER, HEAT, PUMP };
+enum menu { HEATER, HEAT, PUMP, BUZZER };
 
 struct state
 {
@@ -51,11 +51,11 @@ typedef struct
   double iState;     // Integrator state
   double iMax, iMin; // Maximum and minimum allowable integrator state
   double iGain,      // integral gain
-        pGain,      // proportional gain
-        dGain;      // derivative gain
+         pGain,      // proportional gain
+         dGain;      // derivative gain
 } SPid;
 
-void pidInit(SPid * pid, double temperature);
+void pidInit(SPid * pid);
 
 int pidUpdate(SPid * pid, double error, double temperature);
 
