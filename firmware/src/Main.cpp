@@ -3,7 +3,6 @@
 
 void setup();
 void loop();
-SPid pid;
 
 // define the initial state for the system.
 struct state initial = {
@@ -30,7 +29,6 @@ void setup() {
   Serial.begin(9600);
   initTemp();
   displayInit();
-  pidInit(&pid);
   pumpInit();
   heaterInit();
   initBuzzer();
@@ -46,7 +44,7 @@ void loop()
   readButtons(hbs);
   displayUpdate(*hbs);
 
-  if (hbs->actualTemp > hbs->setTemp)
+  if (hbs->buzzer && hbs->actualTemp > hbs->setTemp)
     soundBuzzer();
 
   // Pump ON/OFF
@@ -56,7 +54,7 @@ void loop()
     pumpUpdate(0);
 
   // Use PID controller to Set duty-cycle of heater
-  hbs->heat = pidUpdate(&pid, hbs->setTemp - hbs->actualTemp, hbs->actualTemp);
+  hbs->heat = controller(hbs->setTemp - hbs->actualTemp);
 
   // Heater OFF or PWM
   if (hbs->heater)
