@@ -18,14 +18,24 @@ $ git submodule init
 ```
 
 
-Compile and Flash
------------------
+Compile and Upload Firmware
+---------------------------
 
-Use the makefile to compile and flash.
+The firmware was tested with Arduino UNO and Arduino Pro Mini. Both of
+these boards will auto reset i.e. no need to manually reset before
+upload.
+
+Change port and baud rate in `firmware/Makefile` according to
+board. The Arduino UNO is generally on port `/dev/ttyACM0` and can
+handle speeds up to 115200 baud. The Arduino Pro Mini is generally on
+port `/dev/ttyUSB0` and can only handle speeds up to 57600 baud.
 
 ```
-$ make flash
+$ make upload
 ```
+
+
+
 
 References
 ----------
