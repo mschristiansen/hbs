@@ -6,3 +6,6 @@
 *.csv
 tmp/
 /firmware/libArduino.a
+*.gbr
+*.svg
+*.bak

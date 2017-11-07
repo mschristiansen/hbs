@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/mikkel/projects/hbs/pcb/hbs.sch</source>
+    <date>Thu 02 Nov 2017 19:00:45 SAST</date>
+    <tool>Eeschema 4.0.2+dfsg1-stable</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>hbs.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="P2">
+      <value>CONN_01X02</value>
+      <footprint>Socket_Arduino_Pro_Mini:Socket_Strip_Arduino_1x02</footprint>
+      <libsource lib="Arduino_Pro_Mini-cache" part="CONN_01X02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59D3B8AA</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>CONN_01X06</value>
+      <footprint>Socket_Arduino_Pro_Mini:Socket_Strip_Arduino_1x06</footprint>
+      <libsource lib="Arduino_Pro_Mini-cache" part="CONN_01X06"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59D3B927</tstamp>
+    </comp>
+    <comp ref="P3">
+      <value>CONN_01X12</value>
+      <footprint>Socket_Arduino_Pro_Mini:Socket_Strip_Arduino_1x12</footprint>
+      <libsource lib="Arduino_Pro_Mini-cache" part="CONN_01X12"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59D3B99E</tstamp>
+    </comp>
+    <comp ref="Buttons1">
+      <value>Screw_Terminal_01x02</value>
+      <footprint>Terminal_Blocks:TerminalBlock_WAGO-804_RM5mm_2pol</footprint>
+      <libsource lib="conn" part="Screw_Terminal_01x02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB048D</tstamp>
+    </comp>
+    <comp ref="Buttons2">
+      <value>Screw_Terminal_01x02</value>
+      <footprint>Terminal_Blocks:TerminalBlock_WAGO-804_RM5mm_2pol</footprint>
+      <libsource lib="conn" part="Screw_Terminal_01x02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB05D0</tstamp>
+    </comp>
+    <comp ref="Temp1">
+      <value>Screw_Terminal_01x03</value>
+      <footprint>Terminal_Blocks:TerminalBlock_WAGO-804_RM5mm_3pol</footprint>
+      <libsource lib="conn" part="Screw_Terminal_01x03"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB0650</tstamp>
+    </comp>
+    <comp ref="Heat1">
+      <value>Screw_Terminal_01x02</value>
+      <footprint>Terminal_Blocks:TerminalBlock_WAGO-804_RM5mm_2pol</footprint>
+      <libsource lib="conn" part="Screw_Terminal_01x02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB06DF</tstamp>
+    </comp>
+    <comp ref="Pump1">
+      <value>Screw_Terminal_01x02</value>
+      <footprint>Terminal_Blocks:TerminalBlock_WAGO-804_RM5mm_2pol</footprint>
+      <libsource lib="conn" part="Screw_Terminal_01x02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB077B</tstamp>
+    </comp>
+    <comp ref="Pump2">
+      <value>FINDER-36.11-4301</value>
+      <footprint>Relays_THT:Relay_SPST_Finder_32.21-x300</footprint>
+      <libsource lib="relays" part="FINDER-36.11-4301"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB289A</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>BC337</value>
+      <footprint>TO_SOT_Packages_THT:TO-92_Molded_Narrow</footprint>
+      <libsource lib="transistors" part="BC337"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB2D67</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>1N4148</value>
+      <footprint>Diodes_THT:D_DO-35_SOD27_Horizontal_RM10</footprint>
+      <libsource lib="diode" part="1N4148"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB3022</tstamp>
+    </comp>
+    <comp ref="r220">
+      <value>R</value>
+      <footprint>Resistors_ThroughHole:Resistor_Horizontal_RM7mm</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB3FCF</tstamp>
+    </comp>
+    <comp ref="Display1">
+      <value>Conn_01x04</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x04</footprint>
+      <libsource lib="conn" part="Conn_01x04"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB428E</tstamp>
+    </comp>
+    <comp ref="220V1">
+      <value>Screw_Terminal_01x02</value>
+      <footprint>Terminal_Blocks:TerminalBlock_WAGO-236_2Stift_RM5mm_2pol</footprint>
+      <libsource lib="conn" part="Screw_Terminal_01x02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB5801</tstamp>
+    </comp>
+    <comp ref="AC-DC1">
+      <value>IRM-02-5</value>
+      <footprint>Converters_DCDC_ACDC:ACDC-Converter_MeanWell-IRM-02-x</footprint>
+      <libsource lib="ac-dc" part="IRM-02-5"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB5B3A</tstamp>
+    </comp>
+    <comp ref="BZ1">
+      <value>Buzzer</value>
+      <footprint>Buzzers_Beepers:BUZZER</footprint>
+      <libsource lib="device" part="Buzzer"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59FB21D3</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="diode" part="1N4148">
+      <aliases>
+        <alias>1N4448</alias>
+        <alias>1N4149</alias>
+        <alias>1N4151</alias>
+        <alias>1N914</alias>
+        <alias>BA243</alias>
+        <alias>BA244</alias>
+        <alias>BA282</alias>
+        <alias>BA283</alias>
+        <alias>BAV17</alias>
+        <alias>BAV18</alias>
+        <alias>BAV19</alias>
+        <alias>BAV20</alias>
+        <alias>BAV21</alias>
+        <alias>BAW75</alias>
+        <alias>BAW76</alias>
+        <alias>BAY93</alias>
+      </aliases>
+      <description>100V 0.15A standard switching diode, DO-35</description>
+      <docs>http://www.nxp.com/documents/data_sheet/1N4148_1N4448.pdf</docs>
+      <footprints>
+        <fp>D*DO?35*</fp>
+        <fp>D*SOD27*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">1N4148</field>
+        <field name="Footprint">Diodes_THT:D_DO-35_SOD27_Horizontal_RM10</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="transistors" part="BC547">
+      <aliases>
+        <alias>BC546</alias>
+        <alias>BC548</alias>
+        <alias>BC549</alias>
+        <alias>BC550</alias>
+        <alias>BC337</alias>
+        <alias>BC338</alias>
+      </aliases>
+      <description>45V Vce, 0.1A Ic, NPN, Small Signal Transistor, TO-92</description>
+      <docs>http://www.fairchildsemi.com/ds/BC/BC547.pdf</docs>
+      <footprints>
+        <fp>TO?92*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BC547</field>
+        <field name="Footprint">TO_SOT_Packages_THT:TO-92_Molded_Narrow</field>
+      </fields>
+      <pins>
+        <pin num="1" name="C" type="passive"/>
+        <pin num="2" name="B" type="input"/>
+        <pin num="3" name="E" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="Buzzer">
+      <description>Buzzer, polar</description>
+      <footprints>
+        <fp>*Buzzer*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">BZ</field>
+        <field name="Value">Buzzer</field>
+      </fields>
+      <pins>
+        <pin num="1" name="-" type="passive"/>
+        <pin num="2" name="+" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Arduino_Pro_Mini-cache" part="CONN_01X02">
+      <footprints>
+        <fp>Pin_Header_Straight_1X02</fp>
+        <fp>Pin_Header_Angled_1X02</fp>
+        <fp>Socket_Strip_Straight_1X02</fp>
+        <fp>Socket_Strip_Angled_1X02</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Arduino_Pro_Mini-cache" part="CONN_01X06">
+      <footprints>
+        <fp>Pin_Header_Straight_1X06</fp>
+        <fp>Pin_Header_Angled_1X06</fp>
+        <fp>Socket_Strip_Straight_1X06</fp>
+        <fp>Socket_Strip_Angled_1X06</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X06</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Arduino_Pro_Mini-cache" part="CONN_01X12">
+      <footprints>
+        <fp>Pin_Header_Straight_1X12</fp>
+        <fp>Pin_Header_Angled_1X12</fp>
+        <fp>Socket_Strip_Straight_1X12</fp>
+        <fp>Socket_Strip_Angled_1X12</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X12</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+        <pin num="7" name="P7" type="passive"/>
+        <pin num="8" name="P8" type="passive"/>
+        <pin num="9" name="P9" type="passive"/>
+        <pin num="10" name="P10" type="passive"/>
+        <pin num="11" name="P11" type="passive"/>
+        <pin num="12" name="P12" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_??x*mm*</fp>
+        <fp>Connector*:*1x??x*mm*</fp>
+        <fp>Pin?Header?Straight?1X*</fp>
+        <fp>Pin?Header?Angled?1X*</fp>
+        <fp>Socket?Strip?Straight?1X*</fp>
+        <fp>Socket?Strip?Angled?1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="relays" part="FINDER-32.21-x300">
+      <aliases>
+        <alias>FINDER-36.11-4301</alias>
+        <alias>RM50-xx21</alias>
+      </aliases>
+      <description>FINDER 32.21-x300, Single Pole Relay SPST-NO, 6A</description>
+      <docs>http://gfinder.findernet.com/assets/Series/355/S32EN.pdf</docs>
+      <footprints>
+        <fp>Relay*SPST*Finder*32.21*x300*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">K</field>
+        <field name="Value">FINDER-32.21-x300</field>
+        <field name="Footprint">Relays_THT:Relay_SPST_Finder_32.21-x300</field>
+      </fields>
+      <pins>
+        <pin num="11" name="~" type="passive"/>
+        <pin num="14" name="~" type="passive"/>
+        <pin num="A1" name="~" type="passive"/>
+        <pin num="A2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="ac-dc" part="IRM-02-3.3">
+      <aliases>
+        <alias>IRM-02-5</alias>
+        <alias>IRM-02-9</alias>
+        <alias>IRM-02-12</alias>
+        <alias>IRM-02-15</alias>
+        <alias>IRM-02-24</alias>
+      </aliases>
+      <description>3.3V 2W miniature AC-DC module-type power supply MeanWell</description>
+      <docs>http://www.meanwell.com/productPdf.aspx?i=675</docs>
+      <footprints>
+        <fp>ACDC?Converter?MeanWell?IRM?02?x*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">IRM-02-3.3</field>
+        <field name="Footprint">Converters_DCDC_ACDC:ACDC-Converter_MeanWell-IRM-02-x</field>
+      </fields>
+      <pins>
+        <pin num="1" name="AC/N" type="power_in"/>
+        <pin num="2" name="AC/L" type="power_in"/>
+        <pin num="3" name="-Vout" type="power_out"/>
+        <pin num="4" name="+Vout" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="Screw_Terminal_01x02">
+      <description>Generic screw terminal, single row, 01x02</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*Terminal*Block*:*</fp>
+        <fp>TerminalBlock*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="Screw_Terminal_01x03">
+      <description>Generic screw terminal, single row, 01x03</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*Terminal*Block*:*</fp>
+        <fp>TerminalBlock*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x03</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="relays">
+      <uri>/home/mikkel/code/kicad-library/library/relays.lib</uri>
+    </library>
+    <library logical="Arduino_Pro_Mini-cache">
+      <uri>/home/mikkel/code/kicad-library/template/Arduino_Pro_Mini/Arduino_Pro_Mini-cache.lib</uri>
+    </library>
+    <library logical="transistors">
+      <uri>/home/mikkel/code/kicad-library/library/transistors.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>/home/mikkel/code/kicad-library/library/device.lib</uri>
+    </library>
+    <library logical="diode">
+      <uri>/home/mikkel/code/kicad-library/library/diode.lib</uri>
+    </library>
+    <library logical="ac-dc">
+      <uri>/home/mikkel/code/kicad-library/library/ac-dc.lib</uri>
+    </library>
+    <library logical="conn">
+      <uri>/home/mikkel/code/kicad-library/library/conn.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="GND">
+      <node ref="Temp1" pin="2"/>
+      <node ref="BZ1" pin="2"/>
+      <node ref="Buttons2" pin="1"/>
+      <node ref="Heat1" pin="2"/>
+      <node ref="Pump2" pin="A1"/>
+      <node ref="Pump1" pin="2"/>
+      <node ref="Display1" pin="1"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="2" name="Net-(Display1-Pad3)">
+      <node ref="P1" pin="5"/>
+      <node ref="Display1" pin="3"/>
+    </net>
+    <net code="3" name="Net-(Display1-Pad4)">
+      <node ref="Display1" pin="4"/>
+      <node ref="P1" pin="4"/>
+    </net>
+    <net code="4" name="Net-(Heat1-Pad1)">
+      <node ref="Heat1" pin="1"/>
+      <node ref="P3" pin="11"/>
+    </net>
+    <net code="5" name="Net-(P3-Pad10)">
+      <node ref="r220" pin="2"/>
+      <node ref="P3" pin="10"/>
+    </net>
+    <net code="6" name="Net-(D1-Pad1)">
+      <node ref="Pump2" pin="A2"/>
+      <node ref="Q1" pin="3"/>
+      <node ref="D1" pin="1"/>
+    </net>
+    <net code="7" name="Net-(Q1-Pad2)">
+      <node ref="r220" pin="1"/>
+      <node ref="Q1" pin="2"/>
+    </net>
+    <net code="8" name="Net-(Pump1-Pad1)">
+      <node ref="Pump1" pin="1"/>
+      <node ref="Pump2" pin="14"/>
+    </net>
+    <net code="9" name="Net-(P3-Pad9)">
+      <node ref="P3" pin="9"/>
+      <node ref="Temp1" pin="1"/>
+    </net>
+    <net code="10" name="Net-(Buttons2-Pad2)">
+      <node ref="P3" pin="4"/>
+      <node ref="Buttons2" pin="2"/>
+    </net>
+    <net code="11" name="Net-(BZ1-Pad1)">
+      <node ref="BZ1" pin="1"/>
+      <node ref="P3" pin="8"/>
+    </net>
+    <net code="12" name="Net-(AC-DC1-Pad4)">
+      <node ref="AC-DC1" pin="4"/>
+      <node ref="P2" pin="1"/>
+    </net>
+    <net code="13" name="Net-(AC-DC1-Pad3)">
+      <node ref="AC-DC1" pin="3"/>
+      <node ref="P2" pin="2"/>
+    </net>
+    <net code="14" name="Net-(220V1-Pad2)">
+      <node ref="220V1" pin="2"/>
+      <node ref="AC-DC1" pin="2"/>
+    </net>
+    <net code="15" name="Net-(220V1-Pad1)">
+      <node ref="220V1" pin="1"/>
+      <node ref="AC-DC1" pin="1"/>
+    </net>
+    <net code="16" name="Net-(Buttons1-Pad1)">
+      <node ref="P3" pin="3"/>
+      <node ref="Buttons1" pin="1"/>
+    </net>
+    <net code="17" name="Net-(Buttons1-Pad2)">
+      <node ref="Buttons1" pin="2"/>
+      <node ref="P3" pin="2"/>
+    </net>
+    <net code="18" name="VCC">
+      <node ref="Temp1" pin="3"/>
+      <node ref="Pump2" pin="11"/>
+      <node ref="Q1" pin="1"/>
+      <node ref="Display1" pin="2"/>
+    </net>
+    <net code="19" name="Net-(P3-Pad7)">
+      <node ref="P3" pin="7"/>
+    </net>
+    <net code="20" name="Net-(P3-Pad12)">
+      <node ref="P3" pin="12"/>
+    </net>
+    <net code="21" name="Net-(P3-Pad6)">
+      <node ref="P3" pin="6"/>
+    </net>
+    <net code="22" name="Net-(P3-Pad5)">
+      <node ref="P3" pin="5"/>
+    </net>
+    <net code="23" name="Net-(P3-Pad1)">
+      <node ref="P3" pin="1"/>
+    </net>
+    <net code="24" name="Net-(P1-Pad6)">
+      <node ref="P1" pin="6"/>
+    </net>
+    <net code="25" name="Net-(P1-Pad3)">
+      <node ref="P1" pin="3"/>
+    </net>
+    <net code="26" name="Net-(P1-Pad2)">
+      <node ref="P1" pin="2"/>
+    </net>
+    <net code="27" name="Net-(P1-Pad1)">
+      <node ref="P1" pin="1"/>
+    </net>
+  </nets>
+</export>
