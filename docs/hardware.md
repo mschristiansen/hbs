@@ -9,7 +9,7 @@ DS18B20 Temperature Sensor
 
 - [datasheet](https://cdn.sparkfun.com/datasheets/Sensors/Temp/DS18B20.pdf)
 - 5 volt power
-- One wire to pin 10 with resistor for pullup
+- One wire to pin 9 with 4.7k resistor for pull-up
 - DS18x20 family
 
 

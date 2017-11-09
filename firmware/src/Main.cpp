@@ -39,7 +39,7 @@ void setup() {
 void loop()
 {
   // Update state with the current temperature.
-  hbs->actualTemp = readTemp();;
+  hbs->actualTemp = readTemp();
 
   readButtons(hbs);
   displayUpdate(*hbs);

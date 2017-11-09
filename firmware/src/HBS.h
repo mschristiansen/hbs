@@ -1,7 +1,7 @@
 #ifndef HBS_h
 #define HBS_h
 
-// on pin 9 (a 4.7K resistor is necessary)
+// on pin 9 (a 4.7K resistor is necessary for pull-up)
 #define TEMP_PIN    9
 #define PUMP_PIN   10
 #define HEATER_PIN 11
